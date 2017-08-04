@@ -1,0 +1,176 @@
+<div class="container">
+
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
+    <%= form_for @photo do |f| %>
+      <div class="form-group">
+        <%= f.label :date %><br>
+        <%= f.date_field :date, :value => @photo.date || Date.today, :required=>'true', :class=>'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, :required=>'true', :class=>'form-control' %>
+      </div>
+     
+      <div class="form-group">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, :required=>'true', :class=>'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image %><br>
+        <%= f.file_field :image %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :tags %><br>
+        <%= f.text_area :tags, :class=>'form-control', :required=>'true' %>
+      </div>
+
+      <div class="container no-padding large-margin-top large-margin-bottom">
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :commute, :'data-toggle'=>"toggle", :'data-on'=>"Commuted!", :'data-off'=>"No Commute", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-one' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-one').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :cooked, :'data-toggle'=>"toggle", :'data-on'=>"Cooked!", :'data-off'=>"Did Not Cook", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-two' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-two').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :diningout, :'data-toggle'=>"toggle", :'data-on'=>"Dined Out!", :'data-off'=>"No Dine Out", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-three' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-three').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :exercise, :'data-toggle'=>"toggle", :'data-on'=>"Exercised!", :'data-off'=>"No Exercise", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-four' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-four').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :entertainment, :'data-toggle'=>"toggle", :'data-on'=>"Entertained!", :'data-off'=>"Not Entertained", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-five' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-five').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :family, :'data-toggle'=>"toggle", :'data-on'=>"Family!", :'data-off'=>"No Fam", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-six' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-six').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :friends, :'data-toggle'=>"toggle", :'data-on'=>"Friends!", :'data-off'=>"No Friends", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-seven' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-seven').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :outdoors, :'data-toggle'=>"toggle", :'data-on'=>"Outdoors!", :'data-off'=>"No Outdoors", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-eight' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-eight').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :sleptwell, :'data-toggle'=>"toggle", :'data-on'=>"Slept Well!", :'data-off'=>"No Good Sleep", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-nine' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-nine').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :spiritual, :'data-toggle'=>"toggle", :'data-on'=>"Spirit Win!", :'data-off'=>"No Spirit", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-ten' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-ten').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 large-margin-top">
+          <%= f.check_box :travel, :'data-toggle'=>"toggle", :'data-on'=>"Travelling!", :'data-off'=>"No Travel", :'data-onstyle'=>"success", :'data-offstyle'=>"warning", :id=>'toggle-eleven' %>
+        </div>
+        <script>
+          $(function() {
+            $('#toggle-eleven').bootstrapToggle({
+              onstyle: "success",
+              offstyle: "warning"
+            });
+          })
+        </script>
+
+      </div>
+
+      <br>
+     
+      <div class="form-group large-margin-top">
+        <%= f.submit 'Save The Day', :class=>'btn btn-primary btn-lg' %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="col-md-2"></div>
+</div>

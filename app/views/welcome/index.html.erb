@@ -1,0 +1,101 @@
+<div class="jumbotron fuji">
+
+	<div class="container outer-div">
+
+		<div class="middle-div">
+			<div class="xxxlarge-font permanent-marker sm-space center white">
+				<%= link_to "Bernice & Stefan", root_path, :class=>'white white-hover no-decoration' %>
+				<%= link_to photos_path, :class=>'no-decoration' do %>
+					<%= image_tag "bunny.png", :class=>'img-responsive', :size=>'38x50' %>
+				<% end %>
+			</div>
+			<div class="white center med-space shadows-font med-font">
+				Capturing Life's Important Moments
+			</div>
+			<div class="center large-margin-top med-space med-font">
+				<%= form_tag root_path, :method=> 'get' do %>
+		
+						<%= text_field_tag :search, params[:search], :class=>'xsm-padding med-rare-font', :placeholder=>'2017-07-28 or Stefan...', :style=>'width:200px;' %>
+					  	<button class='btn white-bg fa fa-search gold fa-lg'></button>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="container center large-padding white-bg">
+
+	
+	<div class="col-xs-12">
+		<div class="col-xs-4 med-space">
+			2017
+		</div>
+		<div class="col-xs-4 med-space">
+			2018
+		</div>
+		<div class="col-xs-4 med-space">
+			2019
+		</div>
+	</div>
+	
+
+</div>
+
+<br>
+
+<% if (params[:search] && !params[:search].blank? && @photos.present?) || params[:search].blank? %>
+
+	<% if params[:search] && !params[:search].blank? %>
+		<div class="center med-font">
+			Results for <b class="gold large-font">"<%= params[:search] %>"
+		</div>
+	<% end %>
+
+	<div class="container sm-margin-left sm-margin-right xxlarge-margin-top xxlarge-margin-bottom">
+		<ul class="first no-bullet">
+		   	<% @photos.each do |photo| %>
+
+				<li class="">
+			   		<% if photo.image.exists?(:sitesize) %> 
+		   				<%= image_tag photo.image.url(:sitesize), alt: "#{photo.title}", :class=>'xsm-round-corner' %>
+	   				<% else %>
+	   					<%= image_tag photo.image.url, alt: "#{photo.title}", :class=>'xsm-round-corner' %>
+	   				<% end %>
+		   			
+				   <p class="text white-bg med-padding sm-space xsm-font xsm-round-corner-bottom"><%= photo.date.strftime("%B %e, %Y") %> - <%= photo.description %></p>
+				</li>
+
+			<% end %>
+		   
+		</ul>
+
+	</div>
+
+<% else %>
+	<div class="center med-font">
+		Oops! Nothing found for <b class="gold large-font">"<%= params[:search] %>"</b>
+	</div>
+<% end %>
+
+<br><br><br>
+
+<div class="large-margin-top large-margin-bottom">
+	<div class="center caps xsm-font med-space light-grey">
+		Made with 
+		<%= link_to photos_path, :class=>'no-decoration' do %>
+			<span class="fa fa-heart light-grey red-hover"></span> 
+		<% end %>
+		for the Family
+	</div>
+</div>
+
+	<script>
+
+	$('ul.first').bsPhotoGallery({
+		"classes" : "col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xxs-12",
+		"hasModal" : true
+	});
+
+</script>

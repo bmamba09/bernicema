@@ -1,0 +1,72 @@
+<div class="container">
+  <h2>All Photos</h2>            
+  <%= link_to 'New Photo', new_photo_path %><br>
+  <%= link_to 'Home', root_path %><br><br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Title / Description</th>
+        <th>Insights</th>
+        <th>Tags</th>
+        <th>Photo</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @photos.each do |photo| %>
+	      <tr>
+	        <td class="col-md-1"><%= photo.date.strftime("%B %e, %Y") %></td>
+	        <td class="col-md-3">
+            <%= photo.title %>
+            <br><br>
+            <%= photo.description %>
+          </td>
+          <td class="col-md-2">
+            <% if photo.commute? %>
+              <div><span class="fa fa-car"></span> Commuted</div>
+            <% end %>
+            <% if photo.cooked? %>
+              <div><span class="fa fa-cutlery"></span> Cooked</div>
+            <% end %>
+            <% if photo.diningout? %>
+              <div><span class="fa fa-credit-card-alt"></span> Dined Out</div>
+            <% end %>
+            <% if photo.exercise? %>
+              <div><span class="fa fa-life-ring"></span> Exercised</div>
+            <% end %>
+            <% if photo.entertainment? %>
+              <div><span class="fa fa-film"></span> Entertained</div>
+            <% end %>
+            <% if photo.family? %>
+              <div><span class="fa fa-users"></span> Family</div>
+            <% end %>
+            <% if photo.friends? %>
+              <div><span class="fa fa-handshake-o"></span> Friends</div>
+            <% end %>
+            <% if photo.outdoors? %>
+              <div><span class="fa fa-soccer-ball-o"></span> Outdoors</div>
+            <% end %>
+            <% if photo.sleptwell? %>
+              <div><span class="fa fa-bed"></span> Slept Well</div>
+            <% end %>
+            <% if photo.spiritual? %>
+              <div><span class="fa fa-heartbeat"></span> Spiritual</div>
+            <% end %>
+            <% if photo.travel? %>
+              <div><span class="fa fa-globe"></span> Travel</div>
+            <% end %>
+
+          </td>
+          <td class="col-md-2"><%= photo.tags %></td>
+	        <td class="col-md-1"><%= image_tag photo.image.url(:thumb) %></td>
+	        <td class="col-md-1"><%= link_to 'Edit', edit_photo_path(photo) %></td>
+	        <td class="col-md-1"><%= link_to 'Delete', photo_path(photo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
