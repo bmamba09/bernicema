@@ -42,10 +42,10 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      bucket: 'luifun',
-      access_key_id: 'AKIAISEVPKHJDBTVSCMA',
-      secret_access_key: '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',
-      s3_region: 'us-west-2',
+      bucket: 'bernicema',
+      access_key_id: 'AKIAJAPSCQWJ7SR5IY3A',
+      secret_access_key: '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',
+      s3_region: 'us-east-1',
     }
   }
     
