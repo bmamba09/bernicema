@@ -48,3 +48,4 @@ end
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 gem 'jquery-turbolinks'
+gem 'tzinfo-data'
