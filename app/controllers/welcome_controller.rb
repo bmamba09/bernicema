@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
+  
+  http_basic_authenticate_with name: "bmamba", password: "bmamba"
+  
   def index
   	
 	#search
